@@ -1,0 +1,316 @@
+/* Stili globali e reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Scegli un font simile al design */
+    background-color: #e2e8f0; /* Colore di sfondo leggero */
+}
+
+/* Container principale della Dashboard (CSS Grid) */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Sidebar occupa 1 parte, Contenuto principale 4 parti */
+    grid-template-rows: 150px 1fr; /* Header occupa 150px, il resto lo spazio disponibile */
+    height: 100vh; /* Fa in modo che la dashboard occupi l'intera altezza dello schermo */
+}
+
+/* Sidebar */
+.sidebar {
+    grid-column: 1 / 2; /* Occupa la prima colonna */
+    grid-row: 1 / 3; /* Occupa sia la riga dell'header che del main content */
+    background-color: #1e3a8a; /* Colore blu scuro */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Spazio tra logo e navigazione */
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar .logo img {
+    width: 40px; /* Dimensione icona dashboard */
+    height: 40px;
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.sidebar ul {
+    list-style: none; /* Rimuove i pallini dalle liste */
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none; /* Rimuove la sottolineatura dai link */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Effetto hover */
+    border-radius: 5px;
+}
+
+.sidebar img { /* Stile per le icone nel menu */
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* Rende le icone bianche se sono nere */
+}
+
+/* Header */
+.header {
+    grid-column: 2 / 3; /* Occupa la seconda colonna */
+    grid-row: 1 / 2; /* Occupa la prima riga */
+    background-color: white;
+    padding: 20px 40px;
+    display: grid; /* Usiamo Grid anche qui per organizzare gli elementi */
+    grid-template-columns: 2fr 1fr; /* Barra di ricerca a sinistra, info utente a destra */
+    grid-template-rows: 1fr 1fr; /* Due righe per gli elementi */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar img {
+    width: 24px;
+    height: 24px;
+}
+
+.search-bar input {
+    flex-grow: 1; /* L'input occupa lo spazio rimanente */
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    max-width: 500px;
+}
+
+.user-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end; /* Allinea a destra */
+}
+
+.user-info img {
+    width: 24px;
+    height: 24px;
+}
+
+.user-info .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%; /* Rende l'immagine circolare */
+    object-fit: cover;
+}
+
+.user-info p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-actions {
+    grid-column: 1 / 3; /* Occupa entrambe le colonne sotto */
+    grid-row: 2 / 3;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-actions .avatar-large {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-actions .welcome-message h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.user-actions .welcome-message p {
+    margin: 0;
+    color: #666;
+}
+
+.action-buttons {
+    margin-left: auto; /* Spinge i pulsanti a destra */
+    display: flex;
+    gap: 15px;
+}
+
+.action-buttons button {
+    background-color: #1e3a8a; /* Colore blu dei pulsanti */
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background-color: #0b1f5b; /* Blu più scuro al hover */
+}
+
+/* Main Content */
+.main-content {
+    grid-column: 2 / 3; /* Occupa la seconda colonna */
+    grid-row: 2 / 3; /* Occupa la seconda riga */
+    background-color: #e2e8f0;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Progetti a sinistra (3 parti), Annunci/Trending a destra (1 parte) */
+    gap: 30px; /* Spazio tra le colonne */
+}
+
+.your-projects h2, .announcements h2, .trending h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 colonne adattive */
+    gap: 25px;
+}
+
+.project-card {
+    background-color: white;
+    border-left: 8px solid #f0b429; /* Bordo giallo a sinistra */
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px; /* Altezza minima per le card */
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #1e3a8a;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    flex-grow: 1; /* La descrizione occupa lo spazio rimanente */
+}
+
+.project-card .card-icons {
+    display: flex;
+    justify-content: flex-end; /* Allinea le icone a destra */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.project-card .card-icons img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.project-card .card-icons img:hover {
+    opacity: 1;
+}
+
+.side-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.announcements, .trending {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-card {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Linea divisoria tra annunci */
+}
+
+.announcement-card:last-child {
+    border-bottom: none; /* Rimuove la linea dall'ultimo annuncio */
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.announcement-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #1e3a8a;
+}
+
+.announcement-card p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.trending-item:last-child {
+    margin-bottom: 0;
+}
+
+.trending-item .avatar-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.trending-text p:first-child {
+    font-weight: bold;
+    margin: 0;
+    color: #1e3a8a;
+}
+
+.trending-text p:last-child {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
